@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Nordestino</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #FFFFFF; /* Fundo branco */
+            color: #8D6E63; /* Texto marrom couro */
+            min-height: 100vh; /* Altura mínima igual à altura da viewport */
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #293f11; /* Fundo marrom couro */
+            color: white;
+            padding: 1rem 0; /* Padding do cabeçalho */
+            text-align: center;
+            display: flex;
+            justify-content: space-between; /* Alinhar itens ao espaço entre eles */
+            align-items: center; /* Alinhar itens verticalmente */
+        }
+
+        header h1 {
+            font-size: 2rem; /* Tamanho da fonte do título */
+            margin-right: 10px; /* Espaçamento à direita */
+        }
+
+        header img.logo {
+    max-width: 200px; /* Aumenta a largura máxima da logomarca */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+
+        header nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 1rem; /* Margem entre os itens do menu */
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 2rem;
+            text-align: center;
+            flex: 1; /* Ocupar todo o espaço disponível no conteúdo */
+        }
+
+        .cactus {
+            background: url('caminho/para/sua/imagem-de-cacto.png') no-repeat center center;
+            background-size: contain;
+            height: 200px;
+            margin: 20px auto;
+        }
+
+        .dish {
+            border: 1px solid #293f11; /* Borda marrom couro */
+            padding: 1rem;
+            margin: 1rem auto;
+            max-width: 600px;
+            text-align: left;
+            background-color: #7F6C55;
+            color: #ffffff;
+            overflow: hidden; /* Para garantir que o conteúdo não ultrapasse o contêiner */
+        }
+        .dish img {
+           width: 100%; /* Garante que a imagem ocupe toda a largura do contêiner .dish */
+           height: 200px; /* Altura fixa para todas as imagens */
+           object-fit: cover; /* Assegura que a imagem cubra todo o contêiner sem distorcer */
+           border: 1px solid #8D6E63; /* Borda marrom couro */
+        }
+
+
+
+        .dish h3 {
+            margin-top: 0;
+        }
+
+        button {
+            background-color: #4CAF50; /* Fundo verde cacto */
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #388E3C; /* Fundo verde cacto escuro */
+        }
+        .swiper-container {
+          width: 100%;
+          padding: 2rem 0;
+        }
+
+        .swiper-slide {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+         }
+
+        .swiper-slide img {
+         width: 100%;
+         max-width: 300px; /* Largura máxima das imagens */
+         height: 200px; /* Altura fixa para todas as imagens */
+         object-fit: cover; /* Assegura que a imagem cobre todo o contêiner sem distorcer */
+         border: 1px solid #8D6E63; /* Borda marrom couro */
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+            gap: 1rem; /* Espaço entre os itens */
+            padding: 1rem;
+        }
+
+        .menu-grid .dish {
+            max-width: 100%;
+        }
+        footer {
+          background-color: #ffffff; /* Fundo marrom couro */
+          color: rgb(45, 112, 0);
+          text-align: center;
+          padding: 1rem 0;
+          width: 100%;
+         position: static; /* Certifique-se de que a posição é estática e não fixa */
+        }
+
+     
+
+        /* Estilos para dispositivos menores que 768px (exemplo: tablets e smartphones em modo paisagem) */
+        @media (max-width: 768px) {
+            header {
+                padding: 0.5rem 0; /* Reduzindo o padding do cabeçalho */
+            }
+
+            header h1 {
+                font-size: 1.8rem; /* Reduzindo o tamanho da fonte do título */
+                margin-right: 5px; /* Espaçamento à direita menor */
+            }
+
+            header img.logo {
+                max-width: 120px; /* Reduzindo a largura máxima da logomarca para dispositivos menores */
+            }
+
+            header nav ul {
+                display: flex;
+                justify-content: center;
+            }
+
+            header nav ul li {
+                margin: 0 0.5rem; /* Reduzindo a margem entre os itens do menu */
+            }
+
+            .dish {
+                padding: 0.5rem; /* Reduzindo o padding dos pratos */
+            }
+
+            .dish img {
+                margin-bottom: 0.5rem; /* Ajustando a margem inferior das imagens dos pratos */
+            }
+            .swiper-slide img {
+                max-width: 200px; /* Ajustando a largura máxima das imagens da galeria */
+            }
+
+            footer {
+                padding: 0.5rem 0; /* Reduzindo o padding do rodapé */
+            }
+        }
+
+        /* Estilos para dispositivos menores que 480px (exemplo: smartphones em modo retrato) */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5rem; /* Reduzindo ainda mais o tamanho da fonte do título */
+            }
+
+            header img.logo {
+                max-width: 100px; /* Reduzindo a largura máxima da logomarca para dispositivos muito pequenos */
+            }
+
+            header nav ul li {
+                margin: 0 0.3rem; /* Reduzindo mais a margem entre os itens do menu */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <img src="Cacto´s comida nordestina .png" alt="Logo do Restaurante" class="logo"> <!-- Inserir o caminho da sua logomarca aqui -->
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#menu">Cardápio</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Bem-vindo ao Cacto´s comida nordestina </h2>
+        <p>Desfrute das melhores refeições típicas do nordeste com a gente, desde a pamonha ao baião de dois.</p>
+    </section>
+        <!-- Carrossel de Imagens -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="pamonha.jpg" alt="Prato 1"></div>
+                <div class="swiper-slide"><img src="Canjica01.jpg" alt="Prato 2"></div>
+                <div class="swiper-slide"><img src="cuscuz.jpg" alt="Prato 3"></div>
+                <div class="swiper-slide"><img src="tapioca.jpg" alt="Prato 4"></div>
+                <div class="swiper-slide"><img src="feijoada.jpg" alt="Prato 5"></div>
+                <div class="swiper-slide"><img src="Carne assada.jpg" alt="Prato 6"></div>
+                <div class="swiper-slide"><img src="Rubacao.jpeg" alt="Prato 7"></div>
+                <div class="swiper-slide"><img src="Galinha.jpg" alt="Prato 8"></div>
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+            <!-- Adicionando botões de navegação -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+    <div class="cactus"></div> <!-- Adicionando cacto -->
+
+    <section id="about">
+        <h2>Sobre Nós</h2>
+        <p>
+            No coração do Nordeste brasileiro, o Cacto’s Comida Nordestina nasceu com a missão de trazer para a sua mesa as autênticas delícias da nossa rica e vibrante cultura. Inspirados pelas tradições culinárias passadas de geração em geração, oferecemos uma experiência gastronômica que celebra os sabores únicos e os ingredientes frescos da região.
+            
+            Nossa história começa com uma paixão inabalável pela culinária nordestina, marcada por pratos que aquecem a alma e trazem memórias de tempos passados. Desde a pamonha e canjica feitas com milho fresquinho até o cuscuz recheado e a tapioca crocante, cada prato é preparado com cuidado e dedicação, utilizando receitas tradicionais e ingredientes selecionados.
+            
+            No Cacto’s, acreditamos que a comida tem o poder de unir pessoas e contar histórias. Nosso ambiente acolhedor e familiar é o lugar perfeito para reunir amigos e familiares, compartilhando refeições que são verdadeiras celebrações da nossa herança cultural. Cada refeição é uma viagem pelos sabores e aromas do sertão, repleta de autenticidade e amor.
+            
+            Venha conhecer o Cacto’s Comida Nordestina e permita-se mergulhar em uma experiência única de sabor, tradição e aconchego. Aqui, a tradição se encontra com a inovação, criando pratos que respeitam o passado enquanto abraçam o presente.
+            
+            Agradecemos por nos escolher e por fazer parte da nossa história. Esperamos que cada visita ao nosso restaurante seja tão especial quanto as refeições que preparamos com tanto carinho.
+
+        </p>
+    </section>
+
+    <section id="menu">
+        <h2>Nosso Cardápio</h2>
+        <div class="menu-grid">
+        <div class="dish">
+            <img src="pamonha.jpg" alt="Pamonha">
+            <h3>Pamonha</h3>
+            <p>Deliciosa pamonha feita com milho verde fresquinho.</p>
+            <p>Valor: R$ 10,00</p>
+            <<button class="add-to-cart" data-name="Pamonha" data-price="10.00">Adicionar ao Carrinho</button>
+        </div>
+        <div class="dish">
+            <img src="Canjica01.jpg" alt="Canjica">
+            <h3>Canjica</h3>
+            <p>Canjica cremosa com leite de coco e canela.</p>
+            <p>Valor: R$ 12,00</p>
+            <button class="add-to-cart" data-name="Canjica" data-price="12.00">Adicionar ao Carrinho</button>
+        </div>
+        <div class="dish">
+            <img src="tapioca.jpg" alt="Tapioca">
+            <h3>Tapioca</h3>
+            <p>Tapioca recheada com coco ou queijo de coalho.</p>
+            <p>Valor: R$ 7,00</p>
+            <p> Tapioca recheada com carne seca, ou frango com catupiry</p>
+            <p>Valor: R$ 10,00</p>
+            <P>Tapioca doce : Cartola ou brigadeiro</P>
+            <p>Valor: R$12,00</p>
+            <button class="add-to-cart" data-name="Tapioca" data-price="12.00">Adicionar ao Carrinho</button>
+        </div>
+        <div class="dish">
+            <img src="cuscuz.jpg" alt="Cuscuz">
+            <h3>Cuscuz recheado</h3>
+            <p>Cuscuz recheado com ovo e queijo ou com carne de sol na nata.</p>
+            <p>Valor: R$ 15,00</p>
+            <button class="add-to-cart" data-name="Cuscuz recheado" data-price="15.00">Adicionar ao Carrinho</button>
+        </div>
+    
+        <div class="dish">
+            <img src="feijoada.jpg" alt="Feijoada">
+            <h3>Feijoada</h3>
+            <p>Feijoada da casa acompanhada por arroz, verdura e farofa.</p>
+            <p>Valor: R$ 120,00</p>
+            <button class="add-to-cart" data-name="Feijoada" data-price="120.00">Adicionar ao Carrinho</button>
+        </div>
+        <div class="dish">
+            <img src="Carne assada.jpg" alt="Carne">
+            <h3>Carne Bovina </h3>
+            <p>Carne bovina assada acompanhada por arroz, cuscuz e feijão verde</p>
+            <p>Valor: R$ 100,00</p>
+            <button class="add-to-cart" data-name="Carne Bovina" data-price="100.00">Adicionar ao Carrinho</button>
+        </div>
+        <div class="dish">
+            <img src="Galinha.jpg" alt="Galinha">
+            <h3>Galinha Capoeira</h3>
+            <p>Galinha capoeira acompanhada por feijão verde, arroz, macaxeira e farofa</p>
+            <p>Valor: R$ 150,00</p>
+            <button class="add-to-cart" data-name="Galinha Capoeira" data-price="150.00">Adicionar ao Carrinho</button>
+        </div>
+
+        <div class="dish">
+            <img src="Rubacao.jpeg" alt="Baiao">
+            <h3>Rubacão Paraibano </h3>
+            <p>Rubacão paraibano  cremoso com queijo, creme de leite e carne seca.</p>
+            <p>Valor: R$ 20,00</p>
+            <button class="add-to-cart" data-name="Rubacao" data-price="20.00">Adicionar ao Carrinho</button>
+        </div>
+   
+    </div>
+    
+
+     <section id="contact">
+         <h2>Contato</h2>
+        <p>Adicionar informações de contato </p>
+     </section>
+    </section>
+    <section id="cart" style="display: none;">
+        <h2>Carrinho de Compras</h2>
+        <ul id="cart-items">
+            <!-- Itens do carrinho serão adicionados dinamicamente aqui -->
+        </ul>
+        <p id="cart-total">Total: R$ 0,00</p>
+    </section>
+        <!-- Adicione mais pratos conforme necessário -->
+   
+
+    <footer>
+        <p>&copy; 2024 Desenvolvido por Gustavo Gonçalves - Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Inicialização do Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    
+        // Seleciona todos os botões "Adicionar ao Carrinho"
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    
+        // Seleciona o elemento do carrinho e a lista de itens no carrinho
+        const cart = document.getElementById('cart');
+        const cartItems = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+    
+        // Array para armazenar os itens no carrinho
+        let cartItemsArray = [];
+    
+        // Adiciona um evento de clique a cada botão "Adicionar ao Carrinho"
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const itemName = button.dataset.name;
+                const itemPrice = parseFloat(button.dataset.price);
+    
+                // Adiciona o item ao array de itens do carrinho
+                cartItemsArray.push({ name: itemName, price: itemPrice });
+    
+                // Atualiza o carrinho na interface do usuário
+                renderCart();
+            });
+        });
+    
+        // Função para renderizar o carrinho na interface do usuário
+        function renderCart() {
+            // Limpa a lista de itens do carrinho antes de atualizar
+            cartItems.innerHTML = '';
+    
+            // Renderiza cada item do carrinho
+            cartItemsArray.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - R$ ${item.price.toFixed(2)}`;
+                cartItems.appendChild(li);
+            });
+    
+            // Calcula o valor total do carrinho
+            const total = cartItemsArray.reduce((accumulator, item) => accumulator + item.price, 0);
+    
+            // Atualiza o total na interface do usuário
+            cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+    
+            // Mostra o carrinho (caso esteja oculto)
+            cart.style.display = 'block';
+        }
+    </script>
+    
+</body>
+</html>
