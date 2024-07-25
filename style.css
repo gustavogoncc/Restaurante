@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #FFFFFF; /* Fundo branco */
+    color: #8D6E63; /* Texto marrom couro */
+}
+header {
+    background-color: #000000; /* Novo fundo marrom */
+    color: white;
+    padding: 1rem 0; /* Padding do cabeçalho */
+    text-align: center;
+}
+
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    padding: 2rem;
+    text-align: center;
+}
+
+    .dish {
+        background-color: #61400a; /* Nova cor de fundo */
+        border: 1px solid #8D6E63; /* Borda marrom couro */
+        padding: 1rem;
+        margin: 1rem auto;
+        max-width: 600px;
+        text-align: left;
+    }
+    
+
+
+.dish img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #8D6E63; /* Borda inferior marrom couro */
+    margin-bottom: 1rem;
+}
+
+.dish h3 {
+    margin-top: 0;
+}
+
+button {
+    background-color: #4CAF50; /* Fundo verde cacto */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #388E3C; /* Fundo verde cacto escuro */
+}
+
+footer {
+    background-color: #8D6E63; /* Fundo marrom couro */
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Adicionando elementos de cactos */
+.cactus {
+    background: url('caminho/para/sua/imagem-de-cacto.png') no-repeat center center;
+    background-size: contain;
+    height: 200px;
+    margin: 20px auto;
+}
+/* Estilos para dispositivos menores que 768px (exemplo: tablets e smartphones em modo paisagem) */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 0; /* Reduzindo o padding do cabeçalho */
+    }
+
+    header h1 {
+        font-size: 1.8rem; /* Reduzindo o tamanho da fonte do título */
+    }
+
+    header nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    header nav ul li {
+        margin: 0 0.5rem; /* Reduzindo a margem entre os itens do menu */
+    }
+
+    .dish {
+        padding: 0.5rem; /* Reduzindo o padding dos pratos */
+    }
+
+    .dish img {
+        margin-bottom: 0.5rem; /* Ajustando a margem inferior das imagens dos pratos */
+    }
+
+    footer {
+        padding: 0.5rem 0; /* Reduzindo o padding do rodapé */
+    }
+}
+
+/* Estilos para dispositivos menores que 480px (exemplo: smartphones em modo retrato) */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem; /* Reduzindo ainda mais o tamanho da fonte do título */
+    }
+
+    header nav ul li {
+        margin: 0 0.3rem; /* Reduzindo mais a margem entre os itens do menu */
+    }
+}
